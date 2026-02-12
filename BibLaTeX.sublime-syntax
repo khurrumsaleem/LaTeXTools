@@ -4,9 +4,6 @@
 name: BibLaTeX
 scope: text.biblatex
 
-file_extensions:
-  - bib
-
 contexts:
   main:
     - include: scope:text.bibtex
