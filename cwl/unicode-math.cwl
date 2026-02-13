@@ -125,7 +125,7 @@ StylisticSet=%<set number%>
 \removenolimits{math commands%formula}#*
 \UnicodeMathSymbol{code point}{command}{math class}{unicode name}#*d
 
-# commands defined by default font (computer modern) for both math and text
+# commands defined by default font (latin modern) for both math and text
 \Angstrom
 \ast
 \backdprime
@@ -195,7 +195,7 @@ StylisticSet=%<set number%>
 \vert
 \Vert
 
-# math letter commands defined by default font (computer modern)
+# math letter commands defined by default font (latin modern)
 \Alpha#*m
 \BbbA#*m
 \Bbba#*m
@@ -1351,7 +1351,7 @@ StylisticSet=%<set number%>
 \varkappa#m
 \Zeta#*m
 
-# math symbol commands defined by default font (computer modern)
+# math symbol commands defined by default font (latin modern)
 \acwopencirclearrow#m
 \adots#m
 \approxeq#m

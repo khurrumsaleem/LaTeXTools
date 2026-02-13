@@ -1,11 +1,11 @@
 # ltx-talk class
-# Matthew Bertucci 2025/12/01 for v0.3.4
+# Matthew Bertucci 2026/01/31 for v0.4.0
 
 #include:pdfmanagement
 #include:relsize
 #include:geometry
 #include:mathtools
-#include:unicode-math
+#include:lua-unicode-math
 #include:hyperref
 #include:xcolor
 #include:graphicx
@@ -91,6 +91,8 @@ handout
 \color<overlay spec>{color}
 \date[options%keyvals]{date}
 \emph<overlay spec>{text}
+\footnote<overlay spec>{text}
+\footnote<overlay spec>[number]{text}
 \framesubtitle<overlay spec>[options%keyvals]{text}#*
 \framesubtitle<overlay spec>{text}
 \framesubtitle[options%keyvals]{text}#*

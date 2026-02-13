@@ -566,10 +566,9 @@
 \land#m
 \langle#m
 \lbrace#m
-\lbrack#m
+\lbrack
 \lceil#m
 \ldotp#*m
-\ldots#m
 \le#m
 \leftarrow#m
 \Leftarrow#m
@@ -717,7 +716,7 @@
 \raggedright
 \rangle#m
 \rbrace#m
-\rbrack#m
+\rbrack
 \rceil#m
 \Re#m
 \repeat#*

@@ -1,5 +1,5 @@
 # eqnlines package
-# Matthew Bertucci 2025/10/27 for v0.11
+# Matthew Bertucci 2026/01/31 for v0.14.1
 
 #include:keyval
 
@@ -17,6 +17,13 @@
 \end{aligned}#m
 \begin{alignedat}{ncols}#m\array
 \end{alignedat}#m
+\begin{Bmatrix}#m\array
+\end{Bmatrix}#m
+\begin{bmatrix}#m\array
+\end{bmatrix}#m
+\begin{cases}#m\array
+\begin{cases}[options%keyvals]#m\array
+\end{cases}#m
 \begin{equation*}#\math
 \end{equation*}
 \begin{equations}#\math,array
@@ -38,15 +45,23 @@
 \begin{intertext}
 \begin{intertext}[options%keyvals]
 \end{intertext}
+\begin{matrix}#m\array
+\end{matrix}#m
 \begin{multline}#\math
 \end{multline}
 \begin{multline*}#\math
 \end{multline*}
 \begin{multlined}#m
 \end{multlined}#m
+\begin{pmatrix}#m\array
+\end{pmatrix}#m
 \begin{subequations}
 \begin{subequations}[options%keyvals]
 \end{subequations}
+\begin{Vmatrix}#m\array
+\end{Vmatrix}#m
+\begin{vmatrix}#m\array
+\end{vmatrix}#m
 \begin{xalignat}#*\math,array
 \end{xalignat}#*
 \begin{xalignat*}#*\math,array
@@ -62,12 +77,24 @@
 \eqnaddopt{options%keyvals}
 \eqnalt{text}
 \eqnalt[line|cell]{text}
+\eqnbreak
+\eqnbreak[skip]
+\eqnbreak*
+\eqnbreak*[skip]
 \eqncontrol{options%keyvals}
+\eqnjoin{conjunction}
+\eqnjoin[skip]{conjunction}
+\eqnjoin*{conjunction}
+\eqnjoin*[skip]{conjunction}
 \eqnlinesprovide{features%keyvals}
 \eqnlinesset{options%keyvals}
 \eqnpunct{punct}
 \eqnpunctapply
 \eqref{label}#r
+\eqnsep
+\eqnsep[skip]
+\eqnsep*
+\eqnsep*[skip]
 \framecell
 \framecell[cmd]
 \intertext[options%keyvals]{text}
@@ -93,6 +120,9 @@
 
 #keyvals:\usepackage/eqnlines#c,\eqnlinesset,\begin{equation},\eqnaddopt,\begin{equationsbox}
 spread=##L
+spread*
+spread*=##L
+style=#text,display
 strut#true,false
 punctsep=%<sep%>
 punct=%<punct%>
@@ -120,13 +150,14 @@ margin=##L
 marginleft=##L
 marginright=##L
 scanpar#true,false
+verbose#true,false
+displayheight=##L
+displaydepth=##L
 #endkeyvals
 
 #keyvals:\usepackage/eqnlines#c,\eqnlinesset,\begin{equation},\eqnaddopt
 allowbreaks=#0,1,2,3,4
 allowdisplaybreaks=#0,1,2,3,4
-displayheight=##L
-displaydepth=##L
 tagmargin=##L
 tagmargin*=##L
 tagmarginratio=%<factor%>
@@ -145,6 +176,8 @@ maxleftmargin=##L
 marginbadness=%<integer%>
 maxbadness=%<integer%>
 fulllength=#on,off
+linesep=##L
+linesep*=##L
 mincolsep=##L
 maxcolsep=##L
 margins#true,false
@@ -155,7 +188,7 @@ tagbadness=%<integer%>
 transpose=#plain,cont
 #endkeyvals
 
-#keyvals:\usepackage/eqnlines#c,\eqnlinesset,\begin{equationsbox}
+#keyvals:\usepackage/eqnlines#c,\eqnlinesset,\begin{equationsbox},\begin{cases}
 top
 t
 center
@@ -168,9 +201,22 @@ frame=%<cmd%>
 wrap={{%<cmd-l%>}{%<cmd-r%>}}
 #endkeyvals
 
+#keyvals:\begin{equationsbox},\begin{cases}
+cases
+matrix
+matrix=%<type%>
+intro=%<text%>
+introtext=%<text%>
+textcond#true,false
+condsep=##L
+delim=%<type%>
+braces=%<type%>
+#endkeyvals
+
 #keyvals:\usepackage/eqnlines#c,\eqnlinesset
 native#true,false
 scanequation#true,false
+scanbox#true,false
 sqropt={%<options%>}
 angopt={%<options%>}
 boxangopt={%<options%>}
@@ -213,7 +259,7 @@ autolabel#true,false
 autotag#true,false
 defaults=#classic,eqnlines
 ampproof#true,false
-crerror#true,false
+equationcr#true,false
 strutdepth=##L
 modifierwarning#true,false
 marksymbol=%<symbol%>
@@ -227,6 +273,7 @@ amsmathends#true,false
 backup#true,false
 ang#true,false
 eqref#true,false
+matrix#true,false
 #endkeyvals
 
 #keyvals:\begin{equations},\begin{subequations}
@@ -290,6 +337,7 @@ postpenalty=
 interpenalty=
 linewidth=##L
 colsep=##L
+colsep*=##L
 #endkeyvals
 
 #keyvals:\eqncontrol
@@ -347,18 +395,32 @@ medskip=#above,below,both
 
 #keyvals:\eqnlinesprovide
 equation
+equation*
 displaymath
 gather
+gather*
 multline
+multline*
 align
+align*
 flalign
+flalign*
 alignat
+alignat*
 xalignat
+xalignat*
 xxalignat
-aligned
-alignedat
 gathered
 multlined
+aligned
+alignedat
+cases
+matrix
+pmatrix
+bmatrix
+Bmatrix
+vmatrix
+Vmatrix
 subequations
 sqr
 ang
